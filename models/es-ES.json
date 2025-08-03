@@ -1,0 +1,69 @@
+{
+  "intents": [
+    {
+      "name": "RandomMealIntent",
+      "samples": ["quiero una {mealType} aleatoria", "sugiéreme una {mealType}"],
+      "slots": [
+        {
+          "name": "mealType",
+          "type": "MealType"
+        }
+      ]
+    },
+    {
+      "name": "YesIntent",
+      "samples": ["sí", "me gusta", "vale"]
+    },
+    {
+      "name": "NoIntent",
+      "samples": ["no", "otra", "no me gusta"]
+    },
+    {
+      "name": "AddToMealListIntent",
+      "samples": ["añade {dish} a {mealType}", "pon {dish} como {mealType}"],
+      "slots": [
+        {
+          "name": "dish",
+          "type": "AMAZON.Food"
+        },
+        {
+          "name": "mealType",
+          "type": "MealType"
+        }
+      ]
+    },
+    {
+      "name": "RemoveFromMealListIntent",
+      "samples": ["elimina {dish} de {mealType}", "quita {dish} de {mealType}"],
+      "slots": [
+        {
+          "name": "dish",
+          "type": "AMAZON.Food"
+        },
+        {
+          "name": "mealType",
+          "type": "MealType"
+        }
+      ]
+    },
+    {
+      "name": "SuggestAddFromRecipeIntent",
+      "samples": ["quiero la receta de {dish}"],
+      "slots": [
+        {
+          "name": "dish",
+          "type": "AMAZON.Food"
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "MealType",
+      "values": [
+        { "name": { "value": "comida" } },
+        { "name": { "value": "cena" } }
+      ]
+    }
+  ]
+}

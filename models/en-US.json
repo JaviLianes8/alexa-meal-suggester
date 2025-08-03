@@ -1,0 +1,51 @@
+{
+  "intents": [
+    {
+      "name": "RandomMealIntent",
+      "samples": ["I want a random {mealType}", "suggest me a {mealType}"],
+      "slots": [
+        { "name": "mealType", "type": "MealType" }
+      ]
+    },
+    {
+      "name": "YesIntent",
+      "samples": ["yes", "I like it", "sure"]
+    },
+    {
+      "name": "NoIntent",
+      "samples": ["no", "another one", "I don't like it"]
+    },
+    {
+      "name": "AddToMealListIntent",
+      "samples": ["add {dish} to {mealType}", "set {dish} as {mealType}"],
+      "slots": [
+        { "name": "dish", "type": "AMAZON.Food" },
+        { "name": "mealType", "type": "MealType" }
+      ]
+    },
+    {
+      "name": "RemoveFromMealListIntent",
+      "samples": ["remove {dish} from {mealType}", "delete {dish} from {mealType}"],
+      "slots": [
+        { "name": "dish", "type": "AMAZON.Food" },
+        { "name": "mealType", "type": "MealType" }
+      ]
+    },
+    {
+      "name": "SuggestAddFromRecipeIntent",
+      "samples": ["I want the recipe for {dish}"],
+      "slots": [
+        { "name": "dish", "type": "AMAZON.Food" }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "MealType",
+      "values": [
+        { "name": { "value": "lunch" } },
+        { "name": { "value": "dinner" } }
+      ]
+    }
+  ]
+}
