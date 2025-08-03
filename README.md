@@ -27,8 +27,7 @@ An Alexa Skill that suggests random meals (lunch or dinner), lets users manage t
 
 ```
 alexa_meal_suggester/
-├── app/
-│   └── main.py                      # AWS Lambda handler entrypoint
+├── lambda_function.py               # AWS Lambda handler entrypoint
 ├── domain/
 │   ├── ports.py                     # Interfaces for repositories
 │   └── use_cases.py                 # Core logic
@@ -37,7 +36,6 @@ alexa_meal_suggester/
 │   └── default_recipe_provider.py
 ├── interface/
 │   └── alexa_adapter.py             # Alexa intent handlers
-├── meals/                           # Folder for user JSON files
 ├── models/                          # Interaction models
 ├── README.md
 ```
@@ -45,7 +43,7 @@ alexa_meal_suggester/
 ## 🚀 Deploy
 
 This project is intended to run as an AWS Lambda function. Deploy the
-`app.main.lambda_handler` entrypoint and configure it as the handler for your
+`lambda_function.lambda_handler` entrypoint and configure it as the handler for your
 Alexa skill.
 
 ## ⚙️ Intents Supported
@@ -63,7 +61,7 @@ Alexa skill.
 
 ## 💾 Data Storage
 
-User meal lists are stored as JSON files in the `meals/` directory, one file per user ID.
+User meal lists are stored as JSON files in the `/tmp/meals/` directory, one file per user ID.
 
 ## 📘 License
 

@@ -13,7 +13,7 @@ class JsonMealRepository(MealRepository):
     Stores meals per user in a local directory.
     """
 
-    def __init__(self, base_dir="meals"):
+    def __init__(self, base_dir="/tmp/meals"):
         """
         Initializes the repository and ensures the storage directory exists.
 
