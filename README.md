@@ -28,44 +28,25 @@ An Alexa Skill that suggests random meals (lunch or dinner), lets users manage t
 ```
 alexa_meal_suggester/
 ├── app/
-│   ├── main.py                      # Flask app entrypoint
-│   ├── interface/
-│   │   └── alexa_adapter.py         # Alexa intent handlers
-│   ├── infrastructure/
-│   │   ├── json_meal_repository.py  # Meal storage per user (JSON)
-│   │   └── default_recipe_provider.py
-│   ├── domain/
-│   │   ├── ports.py                 # Interfaces for repositories
-│   │   └── use_cases.py             # Core logic
-│   └── __main__.py                  # Main entry point
+│   └── main.py                      # AWS Lambda handler entrypoint
+├── domain/
+│   ├── ports.py                     # Interfaces for repositories
+│   └── use_cases.py                 # Core logic
+├── infrastructure/
+│   ├── json_meal_repository.py      # Meal storage per user (JSON)
+│   └── default_recipe_provider.py
+├── interface/
+│   └── alexa_adapter.py             # Alexa intent handlers
 ├── meals/                           # Folder for user JSON files
-├── requirements.txt
+├── models/                          # Interaction models
 ├── README.md
 ```
 
-## 🚀 Run Locally
+## 🚀 Deploy
 
-```bash
-# Install dependencies
-pip install flask
-
-# Start the app
-python -m app
-```
-
-## 📤 Example CURL Tests
-
-```bash
-# Suggest a random dinner
-curl -X POST http://127.0.0.1:5000/ \
-  -H "Content-Type: application/json" \
-  -d "{\"session\":{\"user\":{\"userId\":\"test-user-123\"}},\"request\":{\"type\":\"IntentRequest\",\"intent\":{\"name\":\"RandomDinnerIntent\"}}}"
-
-# Confirm the suggestion
-curl -X POST http://127.0.0.1:5000/ \
-  -H "Content-Type: application/json" \
-  -d "{\"session\":{\"user\":{\"userId\":\"test-user-123\"}},\"request\":{\"type\":\"IntentRequest\",\"intent\":{\"name\":\"YesIntent\"}}}"
-```
+This project is intended to run as an AWS Lambda function. Deploy the
+`app.main.lambda_handler` entrypoint and configure it as the handler for your
+Alexa skill.
 
 ## ⚙️ Intents Supported
 
