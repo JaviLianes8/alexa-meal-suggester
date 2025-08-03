@@ -1,11 +1,30 @@
 {
   "intents": [
     {
-      "name": "RandomMealIntent",
-      "samples": ["I want a random {mealType}", "suggest me a {mealType}"],
+      "name": "SuggestDinnerIntent",
+      "samples": ["suggest a dinner", "I want a dinner suggestion"]
+    },
+    {
+      "name": "AddDinnerIntent",
+      "samples": ["add {dish} to my dinners", "add {dish} for dinner"],
       "slots": [
-        { "name": "mealType", "type": "MealType" }
+        {"name": "dish", "type": "AMAZON.Food"}
       ]
+    },
+    {
+      "name": "AddLunchIntent",
+      "samples": ["add {dish} to my lunches", "add {dish} for lunch"],
+      "slots": [
+        {"name": "dish", "type": "AMAZON.Food"}
+      ]
+    },
+    {
+      "name": "RecommendDinnerIntent",
+      "samples": ["recommend a dinner", "give me a dinner recommendation"]
+    },
+    {
+      "name": "RandomDinnerIntent",
+      "samples": ["random dinner", "surprise me with dinner"]
     },
     {
       "name": "YesIntent",
@@ -17,25 +36,25 @@
     },
     {
       "name": "AddToMealListIntent",
-      "samples": ["add {dish} to {mealType}", "set {dish} as {mealType}"],
+      "samples": ["add {dish} to my {meal_type}", "set {dish} as {meal_type}"],
       "slots": [
-        { "name": "dish", "type": "AMAZON.Food" },
-        { "name": "mealType", "type": "MealType" }
+        {"name": "dish", "type": "AMAZON.Food"},
+        {"name": "meal_type", "type": "MealType"}
       ]
     },
     {
       "name": "RemoveFromMealListIntent",
-      "samples": ["remove {dish} from {mealType}", "delete {dish} from {mealType}"],
+      "samples": ["remove {dish} from my {meal_type}", "delete {dish} from my {meal_type}"],
       "slots": [
-        { "name": "dish", "type": "AMAZON.Food" },
-        { "name": "mealType", "type": "MealType" }
+        {"name": "dish", "type": "AMAZON.Food"},
+        {"name": "meal_type", "type": "MealType"}
       ]
     },
     {
       "name": "SuggestAddFromRecipeIntent",
-      "samples": ["I want the recipe for {dish}"],
+      "samples": ["give me the recipe for {dish}", "I want the recipe for {dish}"],
       "slots": [
-        { "name": "dish", "type": "AMAZON.Food" }
+        {"name": "dish", "type": "AMAZON.Food"}
       ]
     }
   ],
@@ -43,8 +62,8 @@
     {
       "name": "MealType",
       "values": [
-        { "name": { "value": "lunch" } },
-        { "name": { "value": "dinner" } }
+        {"name": {"value": "lunch"}},
+        {"name": {"value": "dinner"}}
       ]
     }
   ]

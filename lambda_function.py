@@ -1,9 +1,6 @@
-"""
-AWS Lambda handler to process Alexa Skill webhook events.
+"""AWS Lambda handler to process Alexa Skill webhook events."""
 
-Routes incoming Alexa requests to the appropriate intent handlers defined in
-`alexa_adapter`.
-"""
+import logging
 
 from interface.alexa_adapter import (
     handle_meal_intent,
@@ -17,11 +14,15 @@ from interface.alexa_adapter import (
     handle_suggest_add_from_recipe_intent,
 )
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 
 def lambda_handler(event, context):
     """Entrypoint for AWS Lambda invoked by Alexa."""
     intent = event["request"]["intent"]["name"]
     user_id = event["session"]["user"]["userId"]
+    logger.info("Received intent %s from user %s", intent, user_id)
 
     if intent == "SuggestDinnerIntent":
         return handle_meal_intent("dinner", user_id)
@@ -60,6 +61,7 @@ def lambda_handler(event, context):
         dish = event["request"]["intent"]["slots"]["dish"]["value"]
         return handle_suggest_add_from_recipe_intent(dish)
 
+    logger.warning("Unknown intent %s", intent)
     return {}
 
 

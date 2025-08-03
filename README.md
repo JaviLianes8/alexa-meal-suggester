@@ -61,7 +61,8 @@ Alexa skill.
 
 ## 💾 Data Storage
 
-User meal lists are stored as JSON files in the `/tmp/meals/` directory, one file per user ID.
+User meal lists are stored in a DynamoDB table (`MealSuggestions`) using `userId` as
+the partition key and `mealType` as the sort key.
 
 ## 📘 License
 

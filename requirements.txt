@@ -1,1 +1,2 @@
 # Requirements for AWS Lambda deployment
+boto3>=1.34
