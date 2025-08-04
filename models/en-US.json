@@ -6,6 +6,7 @@
         {"name": "AMAZON.CancelIntent", "samples": ["cancel"]},
         {"name": "AMAZON.HelpIntent", "samples": ["help"]},
         {"name": "AMAZON.StopIntent", "samples": ["stop"]},
+        {"name": "AMAZON.FallbackIntent", "samples": ["i don't know", "what did you say", "that's not it"]},
         {
           "name": "SuggestDinnerIntent",
           "samples": ["suggest a dinner", "I want a dinner suggestion"]
