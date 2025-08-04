@@ -33,6 +33,14 @@ def alexa_response(text: str, end_session: bool = False):
         }
     }
 
+
+def handle_launch_request():
+    """Provides a greeting when the skill is invoked."""
+    return alexa_response(
+        "Hola. Pídeme una sugerencia de comida o añade un plato a tu lista.",
+        end_session=False,
+    )
+
 def handle_meal_intent(meal_type: str, user_id: str):
     """
     Handles intent to suggest a meal.
