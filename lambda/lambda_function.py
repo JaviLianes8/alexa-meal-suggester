@@ -2,7 +2,7 @@
 
 import logging
 
-from interface.alexa_adapter import (
+from .interface.alexa_adapter import (
     handle_meal_intent,
     handle_add_meal_intent,
     handle_recommend_meal_intent,

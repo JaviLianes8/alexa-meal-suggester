@@ -27,23 +27,28 @@ An Alexa Skill that suggests random meals (lunch or dinner), lets users manage t
 
 ```
 alexa_meal_suggester/
-├── lambda_function.py               # AWS Lambda handler entrypoint
-├── domain/
-│   ├── ports.py                     # Interfaces for repositories
-│   └── use_cases.py                 # Core logic
-├── infrastructure/
-│   ├── json_meal_repository.py      # Meal storage per user (JSON)
-│   └── default_recipe_provider.py
-├── interface/
-│   └── alexa_adapter.py             # Alexa intent handlers
+├── lambda/
+│   ├── __init__.py
+│   ├── lambda_function.py           # AWS Lambda handler entrypoint
+│   ├── domain/
+│   │   ├── ports.py                 # Interfaces for repositories
+│   │   └── use_cases.py             # Core logic
+│   ├── infrastructure/
+│   │   ├── json_meal_repository.py  # Meal storage per user (JSON)
+│   │   ├── dynamodb_meal_repository.py
+│   │   └── default_recipe_provider.py
+│   └── interface/
+│       └── alexa_adapter.py         # Alexa intent handlers
 ├── models/                          # Interaction models
 ├── README.md
+└── LICENSE
 ```
 
 ## 🚀 Deploy
 
-This project is intended to run as an AWS Lambda function. Deploy the
-`lambda_function.lambda_handler` entrypoint and configure it as the handler for your
+This project is intended to run as an AWS Lambda function. Zip the `lambda/`
+directory so that it sits at the root of the archive and deploy the
+`lambda.lambda_function.lambda_handler` entrypoint as the handler for your
 Alexa skill.
 
 ## ⚙️ Intents Supported

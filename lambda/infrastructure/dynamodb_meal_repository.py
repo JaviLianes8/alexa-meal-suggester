@@ -10,7 +10,7 @@ from typing import Dict
 import boto3
 from boto3.dynamodb.conditions import Key
 
-from domain.ports import MealRepository
+from ..domain.ports import MealRepository
 
 logger = logging.getLogger(__name__)
 

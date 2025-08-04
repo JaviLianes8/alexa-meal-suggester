@@ -5,7 +5,7 @@ Each user has a separate JSON file identified by their user_id.
 
 import json
 import os
-from domain.ports import MealRepository
+from ..domain.ports import MealRepository
 
 class JsonMealRepository(MealRepository):
     """
