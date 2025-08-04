@@ -1,70 +1,78 @@
 {
-  "intents": [
-    {
-      "name": "SuggestDinnerIntent",
-      "samples": ["sugiéreme una cena", "quiero una sugerencia de cena"]
-    },
-    {
-      "name": "AddDinnerIntent",
-      "samples": ["añade {dish} a mis cenas", "pon {dish} para cenar"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"}
-      ]
-    },
-    {
-      "name": "AddLunchIntent",
-      "samples": ["añade {dish} a mis comidas", "pon {dish} para comer"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"}
-      ]
-    },
-    {
-      "name": "RecommendDinnerIntent",
-      "samples": ["recomiéndame una cena", "dame una recomendación de cena"]
-    },
-    {
-      "name": "RandomDinnerIntent",
-      "samples": ["dame una cena al azar", "sorpréndeme con una cena"]
-    },
-    {
-      "name": "YesIntent",
-      "samples": ["sí", "me gusta", "vale"]
-    },
-    {
-      "name": "NoIntent",
-      "samples": ["no", "otra", "no me gusta"]
-    },
-    {
-      "name": "AddToMealListIntent",
-      "samples": ["añade {dish} a {meal_type}", "pon {dish} como {meal_type}"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"},
-        {"name": "meal_type", "type": "MealType"}
-      ]
-    },
-    {
-      "name": "RemoveFromMealListIntent",
-      "samples": ["elimina {dish} de {meal_type}", "quita {dish} de {meal_type}"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"},
-        {"name": "meal_type", "type": "MealType"}
-      ]
-    },
-    {
-      "name": "SuggestAddFromRecipeIntent",
-      "samples": ["quiero la receta de {dish}", "dame la receta de {dish}"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"}
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "sugeridor de comidas",
+      "intents": [
+        {"name": "AMAZON.CancelIntent", "samples": []},
+        {"name": "AMAZON.HelpIntent", "samples": []},
+        {"name": "AMAZON.StopIntent", "samples": []},
+        {
+          "name": "SuggestDinnerIntent",
+          "samples": ["sugiéreme una cena", "quiero una sugerencia de cena"]
+        },
+        {
+          "name": "AddDinnerIntent",
+          "samples": ["añade {dish} a mis cenas", "pon {dish} para cenar"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"}
+          ]
+        },
+        {
+          "name": "AddLunchIntent",
+          "samples": ["añade {dish} a mis comidas", "pon {dish} para comer"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"}
+          ]
+        },
+        {
+          "name": "RecommendDinnerIntent",
+          "samples": ["recomiéndame una cena", "dame una recomendación de cena"]
+        },
+        {
+          "name": "RandomDinnerIntent",
+          "samples": ["dame una cena al azar", "sorpréndeme con una cena"]
+        },
+        {
+          "name": "YesIntent",
+          "samples": ["sí", "me gusta", "vale"]
+        },
+        {
+          "name": "NoIntent",
+          "samples": ["no", "otra", "no me gusta"]
+        },
+        {
+          "name": "AddToMealListIntent",
+          "samples": ["añade {dish} a {meal_type}", "pon {dish} como {meal_type}"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"},
+            {"name": "meal_type", "type": "MealType"}
+          ]
+        },
+        {
+          "name": "RemoveFromMealListIntent",
+          "samples": ["elimina {dish} de {meal_type}", "quita {dish} de {meal_type}"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"},
+            {"name": "meal_type", "type": "MealType"}
+          ]
+        },
+        {
+          "name": "SuggestAddFromRecipeIntent",
+          "samples": ["quiero la receta de {dish}", "dame la receta de {dish}"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"}
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "MealType",
+          "values": [
+            {"name": {"value": "comida"}},
+            {"name": {"value": "cena"}}
+          ]
+        }
       ]
     }
-  ],
-  "types": [
-    {
-      "name": "MealType",
-      "values": [
-        {"name": {"value": "comida"}},
-        {"name": {"value": "cena"}}
-      ]
-    }
-  ]
+  }
 }

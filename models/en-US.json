@@ -1,70 +1,78 @@
 {
-  "intents": [
-    {
-      "name": "SuggestDinnerIntent",
-      "samples": ["suggest a dinner", "I want a dinner suggestion"]
-    },
-    {
-      "name": "AddDinnerIntent",
-      "samples": ["add {dish} to my dinners", "add {dish} for dinner"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"}
-      ]
-    },
-    {
-      "name": "AddLunchIntent",
-      "samples": ["add {dish} to my lunches", "add {dish} for lunch"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"}
-      ]
-    },
-    {
-      "name": "RecommendDinnerIntent",
-      "samples": ["recommend a dinner", "give me a dinner recommendation"]
-    },
-    {
-      "name": "RandomDinnerIntent",
-      "samples": ["random dinner", "surprise me with dinner"]
-    },
-    {
-      "name": "YesIntent",
-      "samples": ["yes", "I like it", "sure"]
-    },
-    {
-      "name": "NoIntent",
-      "samples": ["no", "another one", "I don't like it"]
-    },
-    {
-      "name": "AddToMealListIntent",
-      "samples": ["add {dish} to my {meal_type}", "set {dish} as {meal_type}"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"},
-        {"name": "meal_type", "type": "MealType"}
-      ]
-    },
-    {
-      "name": "RemoveFromMealListIntent",
-      "samples": ["remove {dish} from my {meal_type}", "delete {dish} from my {meal_type}"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"},
-        {"name": "meal_type", "type": "MealType"}
-      ]
-    },
-    {
-      "name": "SuggestAddFromRecipeIntent",
-      "samples": ["give me the recipe for {dish}", "I want the recipe for {dish}"],
-      "slots": [
-        {"name": "dish", "type": "AMAZON.Food"}
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "meal suggester",
+      "intents": [
+        {"name": "AMAZON.CancelIntent", "samples": []},
+        {"name": "AMAZON.HelpIntent", "samples": []},
+        {"name": "AMAZON.StopIntent", "samples": []},
+        {
+          "name": "SuggestDinnerIntent",
+          "samples": ["suggest a dinner", "I want a dinner suggestion"]
+        },
+        {
+          "name": "AddDinnerIntent",
+          "samples": ["add {dish} to my dinners", "add {dish} for dinner"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"}
+          ]
+        },
+        {
+          "name": "AddLunchIntent",
+          "samples": ["add {dish} to my lunches", "add {dish} for lunch"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"}
+          ]
+        },
+        {
+          "name": "RecommendDinnerIntent",
+          "samples": ["recommend a dinner", "give me a dinner recommendation"]
+        },
+        {
+          "name": "RandomDinnerIntent",
+          "samples": ["random dinner", "surprise me with dinner"]
+        },
+        {
+          "name": "YesIntent",
+          "samples": ["yes", "I like it", "sure"]
+        },
+        {
+          "name": "NoIntent",
+          "samples": ["no", "another one", "I don't like it"]
+        },
+        {
+          "name": "AddToMealListIntent",
+          "samples": ["add {dish} to my {meal_type}", "set {dish} as {meal_type}"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"},
+            {"name": "meal_type", "type": "MealType"}
+          ]
+        },
+        {
+          "name": "RemoveFromMealListIntent",
+          "samples": ["remove {dish} from my {meal_type}", "delete {dish} from my {meal_type}"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"},
+            {"name": "meal_type", "type": "MealType"}
+          ]
+        },
+        {
+          "name": "SuggestAddFromRecipeIntent",
+          "samples": ["give me the recipe for {dish}", "I want the recipe for {dish}"],
+          "slots": [
+            {"name": "dish", "type": "AMAZON.Food"}
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "MealType",
+          "values": [
+            {"name": {"value": "lunch"}},
+            {"name": {"value": "dinner"}}
+          ]
+        }
       ]
     }
-  ],
-  "types": [
-    {
-      "name": "MealType",
-      "values": [
-        {"name": {"value": "lunch"}},
-        {"name": {"value": "dinner"}}
-      ]
-    }
-  ]
+  }
 }
