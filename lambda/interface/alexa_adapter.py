@@ -2,9 +2,9 @@
 
 import logging
 
-from domain.use_cases import get_random_meal, add_meal
-from infrastructure.dynamodb_meal_repository import DynamoDBMealRepository
-from infrastructure.default_recipe_provider import get_random_response
+from ..domain.use_cases import get_random_meal, add_meal
+from ..infrastructure.dynamodb_meal_repository import DynamoDBMealRepository
+from ..infrastructure.default_recipe_provider import get_random_response
 
 logger = logging.getLogger(__name__)
 
@@ -182,3 +182,4 @@ def handle_suggest_add_from_recipe_intent(dish: str):
     """
     logger.info("Suggesting to add %s from recipe", dish)
     return alexa_response(f"¿Quieres añadir {dish} a tus comidas o cenas aleatorias?")
+
