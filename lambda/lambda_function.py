@@ -13,6 +13,7 @@ from .interface.alexa_adapter import (
     handle_add_to_meal_list_intent,
     handle_remove_from_meal_list_intent,
     handle_suggest_add_from_recipe_intent,
+    handle_fallback_intent,
 )
 
 logger = logging.getLogger(__name__)
@@ -71,6 +72,9 @@ def lambda_handler(event, context):
     elif intent == "SuggestAddFromRecipeIntent":
         dish = event["request"]["intent"]["slots"]["dish"]["value"]
         return handle_suggest_add_from_recipe_intent(dish)
+
+    elif intent == "AMAZON.FallbackIntent":
+        return handle_fallback_intent()
 
     logger.warning("Unknown intent %s", intent)
     return {}

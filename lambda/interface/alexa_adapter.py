@@ -37,7 +37,15 @@ def alexa_response(text: str, end_session: bool = False):
 def handle_launch_request():
     """Provides a greeting when the skill is invoked."""
     return alexa_response(
-        "Hola. Pídeme una sugerencia de comida o añade un plato a tu lista.",
+        "Hola, soy tu asistente de comidas. ¿Quieres una sugerencia de cena o añadir un plato?",
+        end_session=False,
+    )
+
+
+def handle_fallback_intent():
+    """Handles unmatched utterances."""
+    return alexa_response(
+        "Lo siento, no he entendido eso. Puedes pedirme una sugerencia de cena, por ejemplo.",
         end_session=False,
     )
 
