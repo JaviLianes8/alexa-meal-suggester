@@ -1,6 +1,7 @@
 """Alexa adapter functions to handle meal-related intents."""
 
 import logging
+from typing import Optional
 
 from ..domain.use_cases import get_random_meal, add_meal
 from ..infrastructure.dynamodb_meal_repository import DynamoDBMealRepository
@@ -11,27 +12,41 @@ logger = logging.getLogger(__name__)
 repo = DynamoDBMealRepository()
 current_suggestions = {}
 
-def alexa_response(text: str, end_session: bool = False):
-    """
-    Generates a standard Alexa response.
+def alexa_response(
+    text: str,
+    end_session: bool = False,
+    reprompt: Optional[str] = None,
+):
+    """Generates a standard Alexa response.
 
     Args:
         text (str): The text Alexa will say.
         end_session (bool): Whether the session should end.
+        reprompt (Optional[str]): Reprompt text when the session remains open.
 
     Returns:
         dict: Alexa-compatible response structure.
     """
-    return {
+    if not end_session:
+        reprompt = reprompt or text
+
+    response = {
         "version": "1.0",
         "response": {
             "outputSpeech": {
                 "type": "PlainText",
-                "text": text
+                "text": text,
             },
-            "shouldEndSession": end_session
-        }
+            "shouldEndSession": end_session,
+        },
     }
+
+    if reprompt:
+        response["response"]["reprompt"] = {
+            "outputSpeech": {"type": "PlainText", "text": reprompt}
+        }
+
+    return response
 
 
 def handle_launch_request():
