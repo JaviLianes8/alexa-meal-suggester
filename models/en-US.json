@@ -3,9 +3,9 @@
     "languageModel": {
       "invocationName": "meal suggester",
       "intents": [
-        {"name": "AMAZON.CancelIntent", "samples": []},
-        {"name": "AMAZON.HelpIntent", "samples": []},
-        {"name": "AMAZON.StopIntent", "samples": []},
+        {"name": "AMAZON.CancelIntent", "samples": ["cancel"]},
+        {"name": "AMAZON.HelpIntent", "samples": ["help"]},
+        {"name": "AMAZON.StopIntent", "samples": ["stop"]},
         {
           "name": "SuggestDinnerIntent",
           "samples": ["suggest a dinner", "I want a dinner suggestion"]

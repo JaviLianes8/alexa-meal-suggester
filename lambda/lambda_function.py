@@ -3,6 +3,7 @@
 import logging
 
 from .interface.alexa_adapter import (
+    handle_launch_request,
     handle_meal_intent,
     handle_add_meal_intent,
     handle_recommend_meal_intent,
@@ -20,8 +21,18 @@ logger.setLevel(logging.INFO)
 
 def lambda_handler(event, context):
     """Entrypoint for AWS Lambda invoked by Alexa."""
-    intent = event["request"]["intent"]["name"]
+    request_type = event["request"]["type"]
     user_id = event["session"]["user"]["userId"]
+
+    if request_type == "LaunchRequest":
+        logger.info("LaunchRequest from user %s", user_id)
+        return handle_launch_request()
+
+    if request_type != "IntentRequest":
+        logger.warning("Unsupported request type %s", request_type)
+        return {}
+
+    intent = event["request"]["intent"]["name"]
     logger.info("Received intent %s from user %s", intent, user_id)
 
     if intent == "SuggestDinnerIntent":
